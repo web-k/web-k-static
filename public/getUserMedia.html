@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style type="text/css">
+video 
+  height: 200px;{
+}
+<!--
+-->
+</style>
+    </head>
+    <body>
+      <h2>getUserMedia Sample</h2>
+      <video autoplay controls></video>
+<script>
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+var video = document.querySelector('video');
+if (navigator.getUserMedia) {
+  navigator.getUserMedia({audio: true, video:true}, function(stream){
+    video.src = window.URL.createObjectURL(stream);
+  }, function(){console.log("getUserMdia error");} );
+} else {
+  console.log("not supported getUserMedia");
+}
+
+</script>
+    </body>
+</html>
